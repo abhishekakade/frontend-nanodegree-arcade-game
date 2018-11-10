@@ -89,8 +89,9 @@ class Player {
             // enemy.x + enemy.xMove/2 > this.x && enemy.x < this.x + this.xMove/2 = IF THEY SAME SHARE AXES TO DETECT COLLISION
             // xMove/2 FOR REDUCING THE COLLISION DETECTION AREA
 
-            if(this.y === enemy.y && (enemy.x + enemy.xMove/2 > this.x && enemy.x < this.x + this.xMove/2)) {
+            if(this.y === enemy.y && (enemy.x + enemy.xMove/1.33 > this.x && enemy.x < this.x + this.xMove/1.33)) {
                 console.log("collided");
+                // alert("collided");
                 this.resetGame();
             }
         }
@@ -161,33 +162,31 @@ class Player {
 
 // FUNCTION FOR RANDOM ENEMY VELOCITY TAKEN FROM MDN
 
-let randomVelocity = function(min = 150, max = 300) {
+let randomVelocity = function(min = 180, max = 300) {
     return Math.floor(Math.random() * (max - min)) + min;
 };
 
-// ADD 1 ENEMY TO RANDOM ROW
+// ADD 2 ENEMIES TO RANDOM ROWS
 
 let rowsForEnemyArray = [0, 83, 166];
 let randomRow;
+// TAKEN FROM CSS-TRICKS
 function randomizeRow() {
     rowsForEnemyArray = [0, 83, 166];
     return rowsForEnemyArray[Math.floor(Math.random()*rowsForEnemyArray.length)];
 }
 
 
-
-// TAKEN FROM CSS-TRICKS
-
 const player = new Player();
-const bug1 = new Enemy(-101, 0, randomVelocity());
-const bug2 = new Enemy(-101, 83, randomVelocity());
-const bug3 = new Enemy((-101 * 2.5), 166, randomVelocity());
+const bug1 = new Enemy(-404, 0, 300);
+const bug2 = new Enemy(-101, 83, 275);
+const bug3 = new Enemy((-252), 166, randomVelocity());
 let bug4 = new Enemy(-101, randomizeRow(), randomVelocity());
-
+let bug5 = new Enemy(-303, randomizeRow(), randomVelocity());
 
 // ARRAY TO HOLD ALL ENEMIES
 let allEnemies = [];
-allEnemies.push(bug1, bug2, bug3, bug4);
+allEnemies.push(bug1, bug2, bug3, bug4, bug5);
 
 
 // This listens for key presses and sends the keys to your

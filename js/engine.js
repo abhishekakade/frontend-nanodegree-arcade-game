@@ -33,8 +33,11 @@ var Engine = (function(global) {
     button.addEventListener("click", function() {
         // TO RANDOMIZE THE 4TH ENEMY POSITION ON EACH RESET
         allEnemies.pop();
-        bug4 = new Enemy(-101, randomizeRow(), randomVelocity());
-        allEnemies.push(bug4);
+        allEnemies.pop();
+        bug4 = new Enemy(-505, randomizeRow(), randomVelocity());
+        bug5 = new Enemy(-303, randomizeRow(), randomVelocity());
+        allEnemies.push(bug4, bug5);
+        // console.log(allEnemies);
         modal.style.display = "none";
         player.resetGame();
         player.wonGame = false;
