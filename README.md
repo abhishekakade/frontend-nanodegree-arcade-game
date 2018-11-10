@@ -1,6 +1,15 @@
-frontend-nanodegree-arcade-game
-===============================
+# Arcade Game
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+##### Udacity FEND Project
+&nbsp;
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+---
+&nbsp;
+#### How to Play?
++ Use **arrow keys (Up, Down, Left, Right)** to move the player across the game field. Player needs to cross the field and **reach the waters** (top most row) while avoiding contact with any of the enemies to successfully complete this game. 
+
++ Game will automatically reset if the player makes contact with any of the enemies. 
+
++ On successful completion, you will see a pop-up modal asking if you want to play again. 
+
++ Start playing [HERE](https://abhishekakade.github.io/frontend-nanodegree-arcade-game/index.html).
