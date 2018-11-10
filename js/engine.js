@@ -22,7 +22,26 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        lastTime;
+        lastTime,
+        id;
+
+    // VARIABLES FOR MODAL
+    let modal = document.querySelector('#modal');
+    let button = document.querySelector('#mdl-btn');
+
+
+    button.addEventListener("click", function() {
+        // TO RANDOMIZE THE 4TH ENEMY POSITION ON EACH RESET
+        allEnemies.pop();
+        bug4 = new Enemy(-101, randomizeRow(), randomVelocity());
+        allEnemies.push(bug4);
+        modal.style.display = "none";
+        player.resetGame();
+        player.wonGame = false;
+        win.requestAnimationFrame(main);
+    });
+
+
 
     canvas.width = 505;
     canvas.height = 606;
@@ -55,7 +74,17 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-        win.requestAnimationFrame(main);
+
+
+         if(player.wonGame === true) {
+            win.cancelAnimationFrame(id);
+         }
+
+         else {
+            id = win.requestAnimationFrame(main);
+         }
+
+        // win.requestAnimationFrame(main); - Original Function Call
     }
 
     /* This function does some initial setup that should only occur once,
